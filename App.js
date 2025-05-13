@@ -5,6 +5,7 @@ import ForumScreen from './screens/ForumScreen';
 import AuthScreen from './screens/AuthScreen';
 import PostScreen from './screens/PostScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
+import PostDetailScreen from './screens/PostDetailScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const Stack = createNativeStackNavigator();
@@ -28,6 +29,11 @@ function App() {
             name="Post" 
             component={PostScreen} 
             options={{ title: 'Create Post' }} 
+          />
+          <Stack.Screen 
+            name="PostDetail" 
+            component={PostDetailScreen} 
+            options={({ route }) => ({ title: route.params.post.title || 'Recipe Details' })}
           />
           <Stack.Screen 
             name="Auth" 
